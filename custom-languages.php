@@ -5,8 +5,8 @@ function custom_enqueue_script() {
 	wp_register_script( 'prismjs', get_stylesheet_directory_uri() . '/my-prismjs.css', false, true );
 }
 
-add_filter( 'pastacode_langs', 'pastacode_new_langages' );
-function pastacode_new_langages( $languages ) {
+add_filter( 'pastacode_langs', 'pastacode_new_languages' );
+function pastacode_new_languages( $languages ) {
 	unset( $languages['cpp'] ); // I dont want C++
 	$languages['scala'] = 'Scala'; // I want Scala :-)
 	return $languages;

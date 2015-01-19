@@ -8,7 +8,7 @@ function _pastacode_services( $services ) {
 }
 
 //Define pastabox lightbox inputs
-add_action( 'pastacode_fields', '_pastacode_fields' );
+add_filter( 'pastacode_fields', '_pastacode_fields' );
 function _pastacode_fields( $fields ) { 
     $fields['wordpress'] = array(  // 'wordpress' or 'whatever'
         'classes'     => array( 'wordpress' ), // same value as the key
@@ -21,7 +21,7 @@ function _pastacode_fields( $fields ) {
 
 //Build the function to retrieve the code
 // "pastacode_wordpress" hook name (1st param) = "pastacode_" + "wordpress" or "whatever"
-add_action( 'pastacode_wordpress', '_pastacode_wordpress', 10, 2 );
+add_filter( 'pastacode_wordpress', '_pastacode_wordpress', 10, 2 );
 function _pastacode_wordpress( $source, $atts ) {
     extract( $atts );
     if( $path_id ) {
